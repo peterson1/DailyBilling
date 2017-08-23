@@ -59,6 +59,9 @@ namespace DailyBilling.Common.Lib11.SOAReport
             if (date >= lse.Rent.FirstDue)
                 cell.Target.Regular = lse.Rent.Rate;
 
+            if (cell.StartBalance != 0)
+                cell.Target.Penalty = lse.Rent.Penalty;
+
             cell.EndBalance = cell.StartBalance 
                             + cell.Target.Total()
                             - cell.CellPayment;
