@@ -12,17 +12,17 @@ namespace DailyBilling.Common.Lib11.BusinessObjects
         }
 
 
-        public enum PenaltyMode
+        public enum PenaltyModes
         {
             Unknown = 0,
-            Interest
+            PercentInterest
         }
 
 
-        public double       Rate       { get; set; }
-        public double       Interest   { get; set; }
-        public DateTime     FirstDue   { get; set; }
-        public Frequency    Interval   { get; set; }
-        public PenaltyMode  Penalty    { get; set; }
+        public double        Rate         { get; set; }
+        public DateTime      FirstDue     { get; set; }
+        public Frequency     Interval     { get; set; }
+        public PenaltyModes  PenaltyMode  { get; set; }
+        public double        PenaltyRate  { get; set; }
     }
 }

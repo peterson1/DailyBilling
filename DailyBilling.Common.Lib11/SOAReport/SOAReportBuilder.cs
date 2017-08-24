@@ -60,7 +60,7 @@ namespace DailyBilling.Common.Lib11.SOAReport
                 cell.Target.Regular = lse.Rent.Rate;
 
             if (cell.StartBalance != 0)
-                cell.Target.Penalty = cell.StartBalance * lse.Rent.Interest;
+                cell.Target.Penalty = cell.StartBalance * lse.Rent.PenaltyRate;
 
             cell.EndBalance = cell.StartBalance 
                             + cell.Target.Total()

@@ -29,7 +29,7 @@ namespace DailyBilling.Tests.SOAReport
             var sut = SUT.Create(out AutoMock moq);
             var lse = new LotContract().InstantiateProperties();
 
-            lse.Rent.Penalty = RentParams.PenaltyMode.Unknown;
+            lse.Rent.PenaltyMode = RentParams.PenaltyModes.Unknown;
 
             sut.Invoking(_ => _.Build(lse, Any.Day))
                .ShouldThrow<ArgumentException>();
