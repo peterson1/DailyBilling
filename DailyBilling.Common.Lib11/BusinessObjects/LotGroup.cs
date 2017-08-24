@@ -1,6 +1,6 @@
 ﻿namespace DailyBilling.Common.Lib11.BusinessObjects
 {
-    public class Section
+    public class LotGroup
     {
         public string Label { get; set; }
     }

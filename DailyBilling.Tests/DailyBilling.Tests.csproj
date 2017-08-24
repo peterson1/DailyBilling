@@ -74,9 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SOAReport\SOAReportRentFacts.cs" />
+    <Compile Include="SOAReport\DailyRentSOAFacts.cs" />
+    <Compile Include="SOAReport\SOAReportBuilderFacts.cs" />
+    <Compile Include="SOAReport\SOAReportBuilderSUT.cs" />
     <Compile Include="SOAReport\SOAReportRightsFacts.cs" />
     <Compile Include="TestTools\ItIsAnyExtensions.cs" />
+    <Compile Include="TestTools\LotContractExtensions.cs" />
     <Compile Include="TestTools\MoqSetupExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

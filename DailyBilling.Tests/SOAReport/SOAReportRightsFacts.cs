@@ -12,7 +12,7 @@ namespace DailyBilling.Tests.SOAReport
         [Fact(DisplayName = "Day 1: no rights paid")]
         public void SOAContractStart()
         {
-            var sut = CreateSUT(out AutoMock moq);
+            var sut = SUT.Create(out AutoMock moq);
             var lse = CreateSampleContract();
             var rep = sut.Build(lse, lse.Start);
 
@@ -50,13 +50,6 @@ namespace DailyBilling.Tests.SOAReport
             c.Rights.DueDate     = c.Start.AddMonths(6);
 
             return c;
-        }
-
-        private SOAReportBuilder CreateSUT(out AutoMock moq)
-        {
-            moq     = AutoMock.GetLoose();
-            var sut = moq.Create<SOAReportBuilder>();
-            return sut;
         }
     }
 }
