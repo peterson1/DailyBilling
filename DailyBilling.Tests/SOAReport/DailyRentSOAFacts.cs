@@ -136,7 +136,7 @@ namespace DailyBilling.Tests.SOAReport
 
             c.Rent               = new RentParams();
             c.Rent.Rate          = 100;
-            c.Rent.PenaltyRate   = 0.03;
+            c.Rent.PenaltyRate1   = 0.03;
             c.Rent.FirstDue      = c.Start;
 
             c.Rights             = new RightsParams();
