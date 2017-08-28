@@ -1,4 +1,4 @@
-﻿using DailyBilling.Common.Lib11.BusinessObjects;
+﻿using DailyBilling.Common.Lib11.Abstractions;
 using Moq;
 using System;
 
@@ -6,7 +6,7 @@ namespace DailyBilling.Tests.TestTools
 {
     public class Any
     {
-        public static LotContract  Lease  => It.IsAny<LotContract>();
+        public static ILease       Lease  => It.IsAny<ILease>();
         public static bool         Bool   => It.IsAny<bool>();
         public static DateTime     Day    => It.IsAny<DateTime>();
         public static ulong        ULong  => It.IsAny<ulong>();

@@ -1,10 +1,10 @@
-﻿using DailyBilling.Common.Lib11.BusinessObjects;
+﻿using DailyBilling.Common.Lib11.Abstractions;
 using System;
 
 namespace DailyBilling.Common.Lib11.DataSources
 {
     public interface IRightsBalanceSource
     {
-        double GetStartBalance(LotContract lse, DateTime date);
+        double GetStartBalance(ILease lse, DateTime date);
     }
 }
