@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace DailyBilling.Common.Lib11.Abstractions
 {
@@ -12,9 +11,9 @@ namespace DailyBilling.Common.Lib11.Abstractions
         DateTime      ContractEnd      { get; }
         DateTime      Submitted        { get; }
         DateTime?     Terminated       { get; }
-                                       
         ILease        FormerLease      { get; }
-                                    
-        List<ILeaseAccount>  Accounts  { get; }
+                                      
+        IRentAccount     Rent          { get; }
+        IRightsAccount   Rights        { get; }
     }
 }
