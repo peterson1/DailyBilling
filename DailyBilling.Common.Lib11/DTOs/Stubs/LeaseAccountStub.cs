@@ -1,6 +1,6 @@
 ﻿using DailyBilling.Common.Lib11.Abstractions;
 
-namespace DailyBilling.Tests.Stubs
+namespace DailyBilling.Common.Lib11.DTOs.Stubs
 {
     public class LeaseAccountStub : ILeaseAccount
     {
