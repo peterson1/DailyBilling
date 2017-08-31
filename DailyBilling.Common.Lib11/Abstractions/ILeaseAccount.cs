@@ -14,7 +14,7 @@
     public interface ILeaseAccount
     {
         string         Label        { get; }
-        double         Balance      { get; }
+        double?        Balance      { get; }
         BillInterval   Interval     { get; }
         string         PenaltyRule  { get; }
     }

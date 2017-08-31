@@ -7,5 +7,9 @@ namespace DailyBilling.Common.Lib11.Abstractions
         string    FirstName  { get; }
         string    LastName   { get; }
         DateTime  BirthDay   { get; }
+
+
+        //  derived
+        string    FullName   { get; }
     }
 }

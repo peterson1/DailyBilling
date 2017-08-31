@@ -8,13 +8,13 @@ namespace DailyBilling.Common.Lib11.BalanceAdjustments
 {
     public abstract class RightsMemoDrafterBase : IRightsMemoDrafter
     {
-        private IRightsBalanceSource             _src;
+        //private IRightsBalanceSource             _src;
         private Dictionary<string, IPenaltyRule> _rules;
 
 
-        public RightsMemoDrafterBase(IRightsBalanceSource rightsBalanceSource)
+        public RightsMemoDrafterBase()
         {
-            _src = rightsBalanceSource;
+            //_src = rightsBalanceSource;
         }
 
 
@@ -47,11 +47,20 @@ namespace DailyBilling.Common.Lib11.BalanceAdjustments
         {
             var ruleKey = lse.Rights.PenaltyRule;
 
+            if (string.IsNullOrWhiteSpace(ruleKey))
+                throw new ArgumentNullException("lse.Rights.PenaltyRule should NOT be BLANK.");
+
             if (!_rules.TryGetValue(ruleKey, out IPenaltyRule rule))
                 throw new ArgumentException($"Unsupported Rights Penalty Rule: {ruleKey}");
 
-            var bal = _src.GetStartBalance(lse, date);
-            return rule.GetSurcharge(lse, bal, date);
+            //var bal = _src.GetStartBalance(lse, date);
+            var bal = lse.Rights.Balance;
+
+            if (!bal.HasValue)
+                //throw new InvalidOperationException("lse.Rights.Balance.HasValue == FALSE");
+                return 0;
+
+            return rule.GetSurcharge(lse, bal.Value, date);
         }
     }
 }

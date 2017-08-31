@@ -6,5 +6,8 @@ namespace DailyBilling.Common.Lib11.DTOs.Stubs
     {
         public string          Label  { get; set; }
         public IPropertyGroup  Group  { get; set; }
+
+
+        public override string ToString() => Label;
     }
 }
