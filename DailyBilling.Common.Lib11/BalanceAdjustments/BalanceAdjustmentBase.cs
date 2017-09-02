@@ -5,6 +5,8 @@ namespace DailyBilling.Common.Lib11.BalanceAdjustments
 {
     public class BalanceAdjustmentBase : IBalanceAdjustment
     {
+        public BalanceAdjustmentBase() { }
+
         public BalanceAdjustmentBase(ILease lease, ILeaseAccount leaseAccount)
         {
             Lease   = lease;
