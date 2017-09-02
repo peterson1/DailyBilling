@@ -1,6 +1,5 @@
 ﻿using DailyBilling.Common.Lib11.Abstractions;
 using DailyBilling.Common.Lib11.BusinessRules;
-using DailyBilling.Common.Lib11.DataSources;
 using System;
 using System.Collections.Generic;
 
@@ -8,25 +7,30 @@ namespace DailyBilling.Common.Lib11.BalanceAdjustments
 {
     public abstract class RightsMemoDrafterBase : IRightsMemoDrafter
     {
-        //private IRightsBalanceSource             _src;
         private Dictionary<string, IPenaltyRule> _rules;
 
 
-        public RightsMemoDrafterBase()
+        public RightsBalanceMemo  CreateDraftMemo  (ILease lse, DateTime effectiveDate)
         {
-            //_src = rightsBalanceSource;
+            var rule = GetRule(lse.Rights.PenaltyRule);
+            return new RightsBalanceMemo(lse)
+            {
+                Title         = rule.MemoTitle,
+                Amount        = rule.GetSurcharge(lse, effectiveDate),
+                EffectiveDate = effectiveDate
+            };
         }
 
 
-        public RightsBalanceMemo  CreateDraftMemo  (ILease lse, DateTime date)
+        private IPenaltyRule GetRule(string ruleKey)
         {
-            var memo = new RightsBalanceMemo(lse)
-            {
-                Description   = "Daily Rights Surcharge Memo",
-                EffectiveDate = date,
-                Amount        = ComputeMemoAmount(lse, date)
-            };
-            return memo.Amount == 0 ? null : memo;
+            if (string.IsNullOrWhiteSpace(ruleKey))
+                throw new ArgumentNullException("lse.Rights.PenaltyRule should NOT be BLANK.");
+
+            if (!_rules.TryGetValue(ruleKey, out IPenaltyRule rule))
+                throw new ArgumentException($"Unsupported Rights Penalty Rule: {ruleKey}");
+
+            return rule;
         }
 
 
@@ -41,26 +45,5 @@ namespace DailyBilling.Common.Lib11.BalanceAdjustments
 
         protected void AddRule<T>(T penaltyRule) where T : IPenaltyRule
             => AddRule(typeof(T).Name, penaltyRule);
-
-
-        private double ComputeMemoAmount(ILease lse, DateTime date)
-        {
-            var ruleKey = lse.Rights.PenaltyRule;
-
-            if (string.IsNullOrWhiteSpace(ruleKey))
-                throw new ArgumentNullException("lse.Rights.PenaltyRule should NOT be BLANK.");
-
-            if (!_rules.TryGetValue(ruleKey, out IPenaltyRule rule))
-                throw new ArgumentException($"Unsupported Rights Penalty Rule: {ruleKey}");
-
-            //var bal = _src.GetStartBalance(lse, date);
-            var bal = lse.Rights.Balance;
-
-            if (!bal.HasValue)
-                //throw new InvalidOperationException("lse.Rights.Balance.HasValue == FALSE");
-                return 0;
-
-            return rule.GetSurcharge(lse, bal.Value, date);
-        }
     }
 }

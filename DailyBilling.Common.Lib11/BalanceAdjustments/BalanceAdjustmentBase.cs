@@ -14,7 +14,7 @@ namespace DailyBilling.Common.Lib11.BalanceAdjustments
 
         public ILease          Lease           { get; }
         public ILeaseAccount   Account         { get; }
-        public string          Description     { get; set; }
+        public string          Title           { get; set; }
         public double          Amount          { get; set; }
         public DateTime        EffectiveDate   { get; set; }
         public string          ReferenceNum    { get; set; }

@@ -7,6 +7,7 @@ namespace DailyBilling.Common.Lib11.BusinessRules
     {
         string   RuleKey       { get; }
         string   Description   { get; }
-        double   GetSurcharge  (ILease lease, double startBalance, DateTime date);
+        string   MemoTitle     { get; }
+        double   GetSurcharge  (ILease lease, DateTime date);
     }
 }

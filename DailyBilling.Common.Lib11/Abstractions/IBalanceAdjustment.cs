@@ -6,7 +6,7 @@ namespace DailyBilling.Common.Lib11.Abstractions
     {
         ILease          Lease           { get; }
         ILeaseAccount   Account         { get; }
-        string          Description     { get; }
+        string          Title           { get; }
         double          Amount          { get; }
         DateTime        EffectiveDate   { get; }
         string          ReferenceNum    { get; }
