@@ -17,7 +17,8 @@ namespace DailyBilling.Common.Lib11.BalanceAdjustments
             {
                 Title         = rule.MemoTitle,
                 Amount        = rule.GetSurcharge(lse, effectiveDate),
-                EffectiveDate = effectiveDate
+                EffectiveDate = effectiveDate,
+                Remarks       = rule.Formula
             };
         }
 
