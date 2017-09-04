@@ -4,6 +4,7 @@ namespace DailyBilling.Common.Lib11.Abstractions
 {
     public interface ILease
     {
+        ulong         Id               { get; }
         ITenant       Tenant           { get; }
         IProperty     Property         { get; }
                                        

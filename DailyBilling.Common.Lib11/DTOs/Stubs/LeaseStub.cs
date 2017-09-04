@@ -5,6 +5,7 @@ namespace DailyBilling.Common.Lib11.DTOs.Stubs
 {
     public class LeaseStub : ILease
     {
+        public ulong            Id               { get; set; }
         public ITenant          Tenant           { get; set; }
         public IProperty        Property         { get; set; }
         public DateTime         ContractStart    { get; set; }
