@@ -2,6 +2,7 @@
 {
     public interface IProperty
     {
+        ulong           Id     { get; }
         string          Label  { get; }
         IPropertyGroup  Group  { get; }
     }
