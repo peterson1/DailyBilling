@@ -86,10 +86,6 @@
       <Project>{b60276fe-39f8-45af-a641-6f6f65bc42a2}</Project>
       <Name>DailyBilling.Common.Lib11</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DailyBilling.SOAReport.Lib45\DailyBilling.SOAReport.Lib45.csproj">
-      <Project>{a5136dbc-64d5-4273-bf5b-b2516cba6e20}</Project>
-      <Name>DailyBilling.SOAReport.Lib45</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
